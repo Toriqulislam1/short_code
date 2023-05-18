@@ -31,5 +31,15 @@
 </IfModule>
  <!-- .htaccess code end -->
 
+
+ <!-- when index file delete then do set .htacess file  -->
+ <IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase/
+RewriteRule ^-$public/index.php[L]
+RewriteRule ^((?!public/).*)$ public/$1 [L]
+</IfModule>
+<!-- end -->
+
 </body>
 </html>
