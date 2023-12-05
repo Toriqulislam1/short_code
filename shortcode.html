@@ -31,6 +31,10 @@
 </IfModule>
  <!-- .htaccess code end -->
 
+ <!-- live cache clear-->
+
+
+ <!-- live cache clear end-->
 
  <!-- when index file delete then do set .htacess file  -->
  <IfModule mod_rewrite.c>
@@ -40,6 +44,23 @@ RewriteRule ^-$public/index.php[L]
 RewriteRule ^((?!public/).*)$ public/$1 [L]
 </IfModule>
 <!-- end -->
+
+
+<!-- laravel live clear code  -->
+
+
+<!-- laravel live clear code  -->
+
+// Clear application cache:
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+Artisan::call('route:cache');
+Artisan::call('config:cache');
+ Artisan::call('view:clear');
+    return 'Application cache has been cleared';
+});
+
+
 
 </body>
 </html>
